@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "HOST=0.0.0.0 PORT=3000 npx y-websocket"
+    "start": "HOST=0.0.0.0 PORT=3000 npx y-websocket",
+    "start:alt": "HOST=0.0.0.0 PORT=3000 node index.js"
   },
   "author": "Chris Basham <chris@bash.am>",
   "license": "MIT",
   "dependencies": {
-    "y-websocket": "1.5.0"
+    "@y/websocket-server": "0.1.5",
+    "ws": "8.13.0"
   },
   "devDependencies": {
     "@flydotio/dockerfile": "0.2.16"
