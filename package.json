@@ -8,6 +8,6 @@
   "author": "Chris Basham <chris@bash.am>",
   "license": "MIT",
   "dependencies": {
-    "@y/websocket-server": "0.1.5"
+    "y-websocket": "2.1.0"
   }
 }
