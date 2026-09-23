@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npx y-websocket"
+    "start": "HOST=0.0.0.0 npx y-websocket"
   },
   "author": "Chris Basham <chris@bash.am>",
   "license": "MIT",
