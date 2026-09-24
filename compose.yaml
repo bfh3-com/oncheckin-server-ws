@@ -12,14 +12,6 @@ services:
       - 127.0.0.11
     dns_opt:
       - timeout:1
-    deploy:
-      resources:
-        limits:
-          cpus: "2.0"
-          memory: 1G
-        reservations:
-          cpus: "0.25"
-          memory: 256M
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:1234"]
       interval: 30s
@@ -43,11 +35,6 @@ services:
       - tunnel
     security_opt:
       - no-new-privileges:true
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: 256M
     logging:
       driver: "json-file"
       options:
