@@ -10,7 +10,7 @@ ENV NODE_ENV=production
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 
 # Run the application as a non-root user.
 USER node
