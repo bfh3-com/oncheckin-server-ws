@@ -2,12 +2,34 @@ services:
   server:
     build:
       context: .
+    user: "node"
+    restart: unless-stopped
     environment:
       NODE_ENV: production
     networks:
       - tunnel
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1G
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:1234"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
   cloudflared:
-    image: cloudflare/cloudflared:latest
+    image: cloudflare/cloudflared:2026.9.1
+    user: "nobody"
     container_name: cloudflared
     restart: unless-stopped
     command: tunnel --no-autoupdate run
@@ -15,6 +37,18 @@ services:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
     networks:
       - tunnel
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
 networks:
   tunnel:
     driver: bridge
