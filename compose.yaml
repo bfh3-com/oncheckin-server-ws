@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     environment:
       NODE_ENV: production
-      DOCKER_BUILDKIT: 1
     networks:
       - tunnel
     deploy:
