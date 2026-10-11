@@ -8,7 +8,7 @@ Create a [Cloudflare tunnel](https://developers.cloudflare.com/cloudflare-one/ne
 
 Add a published application route, such as:
 
-- Hostname: `ws2.oncheck.in`
+- Hostname: `ws.oncheck.in`
 - Service: `http://server:1234`
 
 Create a `.env` file with the tunnel token, such as:
