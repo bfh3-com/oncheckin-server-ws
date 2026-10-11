@@ -25,4 +25,4 @@ docker compose up --build
 
 Visit the published application route, such as:
 
-https://ws2.oncheck.in
+https://ws.oncheck.in
