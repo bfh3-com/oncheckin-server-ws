@@ -24,7 +24,7 @@ services:
         max-size: "10m"
         max-file: "3"
   cloudflared:
-    image: cloudflare/cloudflared:2026.9.1
+    image: cloudflare/cloudflared:2026.10.6
     user: "nobody"
     container_name: cloudflared
     restart: unless-stopped
